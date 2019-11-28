@@ -14,7 +14,7 @@ public class Subject {
     public Subject() {
     }
 
-    public Subject(String name, String lastName) {
+    public Subject(String name) {
         this.name = name;
     }
 
