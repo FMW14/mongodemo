@@ -19,12 +19,23 @@ public class MongodemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		studentRepo.deleteAll();
-		studentRepo.save(new Student("Ivan", "Ivanovich"));
+//		groupRepo.deleteAll();
+
+//		groupRepo.save(new Group("N1"));
+//		groupRepo.save(new Group("N2"));
+
+
+		studentRepo.save(new Student("Ivan", "Ivanovich", "G1"));
 		studentRepo.save(new Student("Zalup", "Zalupovich"));
+
+		System.out.println(studentRepo.findByName("Ivan").get_id().toString());
+//		Student s1 = new Student();
+//		s1 = studentRepo.findByFirstName("Ivan");
+//		System.out.println(s1.getGroup());
 
 		System.out.println("-------------------------------");
 		for (Student student : studentRepo.findAll()) {
-			System.out.println(student.getFirstName());
+			System.out.println(student.getName());
 		}
 		System.out.println();
 
