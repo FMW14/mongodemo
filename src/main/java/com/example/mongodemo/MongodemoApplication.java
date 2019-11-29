@@ -27,6 +27,8 @@ public class MongodemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		studentRepo.deleteAll();
+		subjectRepo.deleteAll();
+		teacherRepo.deleteAll();
 //		groupRepo.deleteAll();
 
 //		groupRepo.save(new Group("N1"));

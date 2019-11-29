@@ -10,14 +10,14 @@ public class Teacher {
     private ObjectId _id;
 
     private String name;
-    private String lastName;
+    private String surname;
 
     public Teacher() {
     }
 
-    public Teacher(String name, String lastName) {
+    public Teacher(String name, String surname) {
         this.name = name;
-        this.lastName = lastName;
+        this.surname = surname;
     }
 
     public ObjectId get_id() {
@@ -36,11 +36,11 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

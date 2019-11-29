@@ -2,7 +2,6 @@ package com.example.mongodemo.domain;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "student")
@@ -12,8 +11,8 @@ public class Student {
     private ObjectId _id;
 
     private String name;
-    private String lastName;
-    private String Group;
+    private String surname;
+    private String group;
 
 //    @DBRef
 //    private Group group;
@@ -21,15 +20,15 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String lastName) {
+    public Student(String name, String surname) {
         this.name = name;
-        this.lastName = lastName;
+        this.surname = surname;
     }
 
-    public Student(String name, String lastName, String group) {
+    public Student(String name, String surname, String group) {
         this.name = name;
-        this.lastName = lastName;
-        Group = group;
+        this.surname = surname;
+        group = group;
     }
 
     public ObjectId get_id() {
@@ -57,19 +56,19 @@ public class Student {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getGroup() {
-        return Group;
+        return group;
     }
 
     public void setGroup(String group) {
-        Group = group;
+        group = group;
     }
 }
