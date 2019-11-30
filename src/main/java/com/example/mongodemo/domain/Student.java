@@ -28,7 +28,7 @@ public class Student {
     public Student(String name, String surname, String group) {
         this.name = name;
         this.surname = surname;
-        group = group;
+        this.group = group;
     }
 
     public ObjectId get_id() {

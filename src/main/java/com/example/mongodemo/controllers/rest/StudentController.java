@@ -16,30 +16,35 @@ public class StudentController {
     @Autowired
     private StudentRepo studentRepo;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public List getAllStudents() {
         return studentRepo.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("{id}")
     public Student getStudentById(@PathVariable("id") ObjectId id) {
         return studentRepo.findBy_id(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("{id}")
     public void modifyStudentById(@PathVariable("id") ObjectId id, @Valid @RequestBody Student student) {
         student.set_id(id);
         studentRepo.save(student);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+//    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping
     public Student addStudent(@Valid @RequestBody Student student) {
         student.set_id(ObjectId.get());
         studentRepo.save(student);
         return student;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("{id}")
     public void deleteStudent(@PathVariable ObjectId id) {
         studentRepo.delete(studentRepo.findBy_id(id));
     }

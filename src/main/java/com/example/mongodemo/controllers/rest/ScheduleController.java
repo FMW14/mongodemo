@@ -1,8 +1,9 @@
 package com.example.mongodemo.controllers.rest;
 
 import com.example.mongodemo.domain.Schedule;
-import com.example.mongodemo.domain.Teacher;
 import com.example.mongodemo.repos.ScheduleRepo;
+import com.example.mongodemo.repos.SubjectRepo;
+import com.example.mongodemo.repos.TeacherRepo;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,10 @@ import java.util.List;
 public class ScheduleController {
     @Autowired
     private ScheduleRepo scheduleRepo;
+    @Autowired
+    private SubjectRepo subjectRepo;
+    @Autowired
+    private TeacherRepo teacherRepo;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List getFullSchedule() {
@@ -44,14 +49,18 @@ public class ScheduleController {
         scheduleRepo.delete(scheduleRepo.findBy_id(id));
     }
 
-    @RequestMapping(value = "/{group}", method = RequestMethod.GET)
+    @RequestMapping(value = "/findbygroup/{group}", method = RequestMethod.GET)
     public List getScheduleByGroup(@PathVariable String group) {
         return scheduleRepo.findByGroup(group);
     }
 
-    @RequestMapping(value = "/{teacher}", method = RequestMethod.GET)
-    public List getScheduleByGroup(@PathVariable Teacher teacher) {
-        return scheduleRepo.findByTeacher(teacher);
+    @RequestMapping(value = "/findbyteacher/{id}", method = RequestMethod.GET)
+    public List getScheduleByTeacher(@PathVariable ObjectId id) {
+        return scheduleRepo.findByTeacher(teacherRepo.findBy_id(id));
     }
 
+    @RequestMapping(value = "/findbysubj/{id}", method = RequestMethod.GET)
+    public List getScheduleBySubj(@PathVariable ObjectId id) {
+        return scheduleRepo.findBySubject(subjectRepo.findBy_id(id));
+    }
 }
