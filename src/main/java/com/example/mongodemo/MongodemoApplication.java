@@ -33,6 +33,7 @@ public class MongodemoApplication implements CommandLineRunner {
 		studentRepo.deleteAll();
 		subjectRepo.deleteAll();
 		teacherRepo.deleteAll();
+		scheduleRepo.deleteAll();
 
 //		groupRepo.deleteAll();
 

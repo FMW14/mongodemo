@@ -15,30 +15,30 @@ public class SubjectController {
     @Autowired
     private SubjectRepo subjectRepo;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public List getAllSubjects() {
         return subjectRepo.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("{id}")
     public Subject getSubjectById(@PathVariable("id") ObjectId id) {
         return subjectRepo.findBy_id(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("{id}")
     public void modifySubjectById(@PathVariable("id") ObjectId id, @Valid @RequestBody Subject subject) {
         subject.set_id(id);
         subjectRepo.save(subject);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping
     public Subject addSubject(@Valid @RequestBody Subject subject) {
         subject.set_id(ObjectId.get());
         subjectRepo.save(subject);
         return subject;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("{id}")
     public void deleteSubject(@PathVariable ObjectId id) {
         subjectRepo.delete(subjectRepo.findBy_id(id));
     }

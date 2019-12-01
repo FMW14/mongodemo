@@ -21,45 +21,45 @@ public class ScheduleController {
     @Autowired
     private TeacherRepo teacherRepo;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public List getFullSchedule() {
         return scheduleRepo.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("{id}")
     public Schedule getStringById(@PathVariable("id") ObjectId id) {
         return scheduleRepo.findBy_id(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("{id}")
     public void modifyStringById(@PathVariable("id") ObjectId id, @Valid @RequestBody Schedule schedule) {
         schedule.set_id(id);
         scheduleRepo.save(schedule);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping
     public Schedule addString(@Valid @RequestBody Schedule schedule) {
         schedule.set_id(ObjectId.get());
         scheduleRepo.save(schedule);
         return schedule;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("{id}")
     public void deleteString(@PathVariable ObjectId id) {
         scheduleRepo.delete(scheduleRepo.findBy_id(id));
     }
 
-    @RequestMapping(value = "/findbygroup/{group}", method = RequestMethod.GET)
+    @GetMapping("/findbygroup/{group}")
     public List getScheduleByGroup(@PathVariable String group) {
         return scheduleRepo.findByGroup(group);
     }
 
-    @RequestMapping(value = "/findbyteacher/{id}", method = RequestMethod.GET)
+    @GetMapping("/findbyteacher/{id}")
     public List getScheduleByTeacher(@PathVariable ObjectId id) {
         return scheduleRepo.findByTeacher(teacherRepo.findBy_id(id));
     }
 
-    @RequestMapping(value = "/findbysubj/{id}", method = RequestMethod.GET)
+    @GetMapping("/findbysubj/{id}")
     public List getScheduleBySubj(@PathVariable ObjectId id) {
         return scheduleRepo.findBySubject(subjectRepo.findBy_id(id));
     }

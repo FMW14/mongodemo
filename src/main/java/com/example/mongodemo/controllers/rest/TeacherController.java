@@ -15,30 +15,30 @@ public class TeacherController {
     @Autowired
     private TeacherRepo teacherRepo;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public List getAllTeachers() {
         return teacherRepo.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("{id}")
     public Teacher getTeacherRById(@PathVariable("id") ObjectId id) {
         return teacherRepo.findBy_id(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @PutMapping("{id}")
     public void modifyTeacherById(@PathVariable("id") ObjectId id, @Valid @RequestBody Teacher teacher) {
         teacher.set_id(id);
         teacherRepo.save(teacher);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping
     public Teacher addTeacher(@Valid @RequestBody Teacher teacher) {
         teacher.set_id(ObjectId.get());
         teacherRepo.save(teacher);
         return teacher;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("{id}")
     public void deleteTeacher(@PathVariable ObjectId id) {
         teacherRepo.delete(teacherRepo.findBy_id(id));
     }

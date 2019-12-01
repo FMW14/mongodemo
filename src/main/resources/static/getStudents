@@ -1,0 +1,8 @@
+async function getStudents(){
+    let url = "/api/student";
+    let response = await fetch(url);
+    let responce2 = await response.json();
+}
+
+
+
