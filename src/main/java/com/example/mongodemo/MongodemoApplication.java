@@ -35,10 +35,6 @@ public class MongodemoApplication implements CommandLineRunner {
 		teacherRepo.deleteAll();
 		scheduleRepo.deleteAll();
 
-//		groupRepo.deleteAll();
-
-//		groupRepo.save(new Group("N1"));
-//		groupRepo.save(new Group("N2"));
 		Student st1 = new Student("Ivan", "Ivanov", "G1");
 		Student st2 = new Student("Ivan", "Petrov", "G2");
 		Student st3 = new Student("Petr", "Alexandrov", "G2");
@@ -58,28 +54,13 @@ public class MongodemoApplication implements CommandLineRunner {
 		teacherRepo.save(teacher2);
 
 		Schedule schedule1 = new Schedule(teacher1, subj1, "G1", "123", "9:00" );
+		Schedule schedule2 = new Schedule(teacher2, subj2, "G2", "124", "9:00" );
+		Schedule schedule3 = new Schedule(teacher1, subj1, "G2", "123", "11:00" );
+		Schedule schedule4 = new Schedule(teacher2, subj2, "G1", "124", "13:00" );
 		scheduleRepo.save(schedule1);
-
-//		scheduleRepo.save(new Schedule())
-
-//		System.out.println(studentRepo.findByName("Ivan").get_id().toString());
-//		Student s1 = new Student();
-//		s1 = studentRepo.findByFirstName("Ivan");
-//		System.out.println(s1.getGroup());
-
-		System.out.println("-------------------------------");
-		for (Student student : studentRepo.findAll()) {
-			System.out.println(student.getName());
-		}
-		System.out.println();
-
-		System.out.println("-------------------------------");
-		for (Student student : studentRepo.findByName("Ivan")) {
-			System.out.println(student.getName());
-		}
-		System.out.println();
-
-
+		scheduleRepo.save(schedule2);
+		scheduleRepo.save(schedule3);
+		scheduleRepo.save(schedule4);
 	}
 
 }
