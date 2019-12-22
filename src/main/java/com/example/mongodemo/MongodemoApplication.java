@@ -30,37 +30,37 @@ public class MongodemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		studentRepo.deleteAll();
-		subjectRepo.deleteAll();
-		teacherRepo.deleteAll();
-		scheduleRepo.deleteAll();
-
-		Student st1 = new Student("Ivan", "Ivanov", "G1");
-		Student st2 = new Student("Ivan", "Petrov", "G2");
-		Student st3 = new Student("Petr", "Alexandrov", "G2");
-		Subject subj1 = new Subject("subj1");
-		Subject subj2 = new Subject("subj2");
-		Teacher teacher1 = new Teacher("Name1", "Lastname1");
-		Teacher teacher2 = new Teacher("Name2", "Lastname2");
-
-		studentRepo.save(st1);
-		studentRepo.save(st2);
-		studentRepo.save(st3);
-
-		subjectRepo.save(subj1);
-		subjectRepo.save(subj2);
-
-		teacherRepo.save(teacher1);
-		teacherRepo.save(teacher2);
-
-		Schedule schedule1 = new Schedule(teacher1, subj1, "G1", "123", "9:00" );
-		Schedule schedule2 = new Schedule(teacher2, subj2, "G2", "124", "9:00" );
-		Schedule schedule3 = new Schedule(teacher1, subj1, "G2", "123", "11:00" );
-		Schedule schedule4 = new Schedule(teacher2, subj2, "G1", "124", "13:00" );
-		scheduleRepo.save(schedule1);
-		scheduleRepo.save(schedule2);
-		scheduleRepo.save(schedule3);
-		scheduleRepo.save(schedule4);
+//		studentRepo.deleteAll();
+//		subjectRepo.deleteAll();
+//		teacherRepo.deleteAll();
+//		scheduleRepo.deleteAll();
+//
+//		Student st1 = new Student("Ivan", "Ivanov", "G1");
+//		Student st2 = new Student("Ivan", "Petrov", "G2");
+//		Student st3 = new Student("Petr", "Alexandrov", "G2");
+//		Subject subj1 = new Subject("subj1");
+//		Subject subj2 = new Subject("subj2");
+//		Teacher teacher1 = new Teacher("Name1", "Lastname1");
+//		Teacher teacher2 = new Teacher("Name2", "Lastname2");
+//
+//		studentRepo.save(st1);
+//		studentRepo.save(st2);
+//		studentRepo.save(st3);
+//
+//		subjectRepo.save(subj1);
+//		subjectRepo.save(subj2);
+//
+//		teacherRepo.save(teacher1);
+//		teacherRepo.save(teacher2);
+//
+//		Schedule schedule1 = new Schedule(teacher1, subj1, "G1", "123", "9:00" );
+//		Schedule schedule2 = new Schedule(teacher2, subj2, "G2", "124", "9:00" );
+//		Schedule schedule3 = new Schedule(teacher1, subj1, "G2", "123", "11:00" );
+//		Schedule schedule4 = new Schedule(teacher2, subj2, "G1", "124", "13:00" );
+//		scheduleRepo.save(schedule1);
+//		scheduleRepo.save(schedule2);
+//		scheduleRepo.save(schedule3);
+//		scheduleRepo.save(schedule4);
 	}
 
 }

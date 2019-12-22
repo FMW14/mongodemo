@@ -56,7 +56,7 @@ public class ScheduleController {
 
     @GetMapping("/findbyroom/{room}")
     public List getScheduleByRoom(@PathVariable String room) {
-        return scheduleRepo.findByGroup(room);
+        return scheduleRepo.findByRoom(room);
     }
 
     @GetMapping("/findbyteacher/{id}")

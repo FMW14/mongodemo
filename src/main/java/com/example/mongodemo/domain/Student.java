@@ -7,15 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "student")
 public class Student {
     @Id
-//    private String id;
     private ObjectId _id;
 
     private String name;
     private String surname;
     private String group;
 
-//    @DBRef
-//    private Group group;
 
     public Student() {
     }
@@ -40,14 +37,6 @@ public class Student {
     }
 
 
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-
     public String getName() {
         return name;
     }
@@ -69,6 +58,6 @@ public class Student {
     }
 
     public void setGroup(String group) {
-        group = group;
+        this.group = group;
     }
 }
